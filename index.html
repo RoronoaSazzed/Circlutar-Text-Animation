@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circlutar Text Animation</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .parentDiv {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .wrapper {
+        width: 480px;
+      }
+
+      text {
+        font-size: 75px;
+      }
+
+      #circular-text {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: rotate 15s linear infinite;
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parentDiv">
+      <div class="wrapper">
+        <svg
+          id="circular-text"
+          width="100%"
+          min-height="0"
+          viewBox="0 0 500 500"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="circular-text">
+            <path
+              id="circle-stroke"
+              d="M416 250C416 341.679 341.679 416 250 416C158.321 416 84 341.679 84 250C84 158.321 158.321 84 250 84C296.692 84 338.882 103.278 369.044 134.309C398.105 164.206 416 205.013 416 250Z"
+              stroke="transparent"
+              stroke-width="5"
+            />
+          </g>
+
+          <text fill="#131313">
+            <textpath href="#circle-stroke">
+              For as little as $37 per month.
+
+              <animate
+                from="0%"
+                to="100%"
+                begin="0s"
+                dur="10s"
+                repeatCount="indefinite"
+                keyTimes="0;1"
+              />
+            </textpath>
+          </text>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
